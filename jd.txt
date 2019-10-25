@@ -12,7 +12,7 @@ function start(){
                 .then(function(res){
                         productList = res.data.result.productList;
                         shopList  = res.data.result.shopList;
-                        console.log(`獲取到任務,商品：${productList.length} 商品：${shopList.length}`);
+                        console.log(`获取到任务,商品：${productList.length} 商品：${shopList.length}`);
                         autoProductTask();
                 });
 }
@@ -23,7 +23,7 @@ function autoProductTask(){
                         setTimeout(()=>{
                                 let item = productList[index];
                                 autoPost(item['id'],4);
-                                console.log(`商品總任務數：${leng} 當前任務數：${index + 1}`);
+                                console.log(`商品任务总数：${leng} 当前任务数：${index + 1}`);
                                 if( leng-1 == index){
                                         autoShopTask();
                                 }
@@ -31,14 +31,14 @@ function autoProductTask(){
                 })(i)
         }
 }
-//逛店舖
+//逛店铺
 function autoShopTask(){
         for(let i = 0,leng = shopList.length;i<leng;i++){
                 (function(index){
                         setTimeout(()=>{
                                 let item = shopList[index];
                                 autoPost(item['id'],2);
-                                console.log(`商舖總任務數：${leng} 當前任務數：${index + 1}`);
+                                console.log(`商铺任务总数：${leng} 当前任务数：${index + 1}`);
                                 if( leng-1 == index){
                                         autoPlay();
                                 }
@@ -46,13 +46,13 @@ function autoShopTask(){
                 })(i)
         }
 }
-//好玩互動
+//好玩互动
 function autoPlay(){
         for(let i = 0,leng = 4;i<leng;i++){
                 (function(index){
                         setTimeout(()=>{
                                 autoPost(0,5);
-                                console.log(`好玩互動：${leng} 當前任務數：${index + 1}`);
+                                console.log(`好玩互动：${leng} 当前任务数：${index + 1}`);
                                 if( leng-1 == index){
                                         autoInteract();
                                 }
@@ -60,13 +60,13 @@ function autoPlay(){
                 })(i)
         }
 }
-//視頻直播
+//视频直播
 function autoInteract(){
         for(let i = 0,leng = 4;i<leng;i++){
                 (function(index){
                         setTimeout(()=>{
                                 autoPost(0,10);
-                                console.log(`視頻直播：${leng} 當前任務數：${index + 1}`);
+                                console.log(`视频直播：${leng} 当前任务数：${index + 1}`);
                                 if( leng-1 == index){
                                         autoShopping();
                                 }
@@ -74,13 +74,13 @@ function autoInteract(){
                 })(i)
         }
 }
-//精彩會場
+//精彩会场
 function autoShopping(){
         for(let i = 0,leng = 3;i<leng;i++){
                 (function(index){
                         setTimeout(()=>{
                                 autoPost(0,3);
-                                console.log(`精彩會場：${leng} 當前任務數：${index + 1}`);
+                                console.log(`精彩会场：${leng} 当前任务数：${index + 1}`);
                                 },
                         index*8000)
                 })(i)
